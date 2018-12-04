@@ -5,7 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 namespace UnityStandardAssets.Vehicles.Car
 {
     [RequireComponent(typeof (CarController))]
-    public class CarUserControl : MonoBehaviour
+    public class CarUserControl1 : MonoBehaviour
     {
         private CarController m_Car; // the car controller we want to use
 
@@ -20,10 +20,10 @@ namespace UnityStandardAssets.Vehicles.Car
         private void FixedUpdate()
         {
             // pass the input to the car!
-            float h = CrossPlatformInputManager.GetAxis("Horizontal_P1");
-            float v = CrossPlatformInputManager.GetAxis("Vertical_P1");
+            float h = CrossPlatformInputManager.GetAxis("Horizontal_P2");
+            float v = CrossPlatformInputManager.GetAxis("Vertical_P2");
 #if !MOBILE_INPUT
-            float handbrake = CrossPlatformInputManager.GetAxis("Jump_P1");
+            float handbrake = CrossPlatformInputManager.GetAxis("Jump_P2");
             m_Car.Move(h, v, v, handbrake);
 #else
             m_Car.Move(h, v, v, 0f);
