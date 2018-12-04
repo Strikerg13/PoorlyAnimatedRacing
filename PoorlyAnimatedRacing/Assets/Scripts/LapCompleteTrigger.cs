@@ -8,11 +8,12 @@ public class LapCompleteTrigger : MonoBehaviour {
     public GameObject FinishLineTrigger;
     public GameObject HalfWayTrigger;
 
-    public GameObject LapTimeManager;
+    public GameObject LapManager;
 
     void OnTriggerEnter()
     {
-        LapTimeManager.GetComponent<LapTimeManager>().markLap();
+        LapManager.GetComponent<LapTimeManager>().markLap();
+        LapManager.GetComponent<LapCountManager>().nextLap();
 
         // rotate active checkpoints
         FinishLineTrigger.SetActive(false);
