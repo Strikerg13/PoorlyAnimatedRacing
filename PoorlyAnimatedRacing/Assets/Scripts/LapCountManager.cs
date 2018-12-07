@@ -9,6 +9,7 @@ public class LapCountManager : MonoBehaviour {
     public int currentLap;
 
     public GameObject txtLapCount;
+    public GameObject FinishCamera;
 
 	// When the Lap Manager object is created
 	void Start () 
@@ -48,7 +49,6 @@ public class LapCountManager : MonoBehaviour {
     // The race is over...do stuff
     void raceFinished()
     {
-        txtLapCount.GetComponent<Text>().text = "FINISH";
-        txtLapCount.GetComponent<Text>().color = Color.red;
+        FinishCamera.SetActive(true);
     }
 }
