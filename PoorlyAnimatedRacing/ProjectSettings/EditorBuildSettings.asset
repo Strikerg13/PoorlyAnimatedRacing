@@ -5,16 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 57949066738c58d4a8f02fc83b2007e1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StageSelectMenu.unity
     guid: f29e8870aee26ac45aef7e6dc5207770
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Track01_SinglePlayer.unity
     guid: 0ec9e587d7759b448bbaa86370c27521
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Track01_Multiplayer.unity
     guid: cbace5d6766f48641a4bc8c565019fb2
+  - enabled: 1
+    path: Assets/Scenes/Spline.unity
+    guid: 29fc2d082bdd50043af481fb39b96b44
   m_configObjects: {}
