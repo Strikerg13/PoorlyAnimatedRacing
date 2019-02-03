@@ -7,24 +7,35 @@ public class CameraChange : MonoBehaviour {
     public List<GameObject> cameras;
     int i;
 
-	// each frame
-	void Update () 
+    void Update ()
     {
         if (Input.GetButtonDown("ChangeCamera_P1"))
         {
-            // if we're not at the end of the list...activate the next camera, and deactivate the current camera.
-            if (i < cameras.Count - 1)
+            if (i >= (cameras.Count - 1))
             {
-                cameras[i+1].SetActive(true);
-                cameras[i].SetActive(false);
-                i++;
-                return;
+                i = 0;
+            }
+            else
+            {
+                i += 1;
             }
 
-            // We're at the end of the list...start over at the 0 index, and deactivate the previous camera.
+            StartCoroutine(SwitchCamera());
+        }
+    }
+
+    IEnumerator SwitchCamera()
+    {
+        yield return new WaitForSeconds(0.01f);
+        if (i < cameras.Count - 1)
+        {
+            cameras[i + 1].SetActive(true);
+            cameras[i].SetActive(false);
+        }
+        else
+        {
             cameras[0].SetActive(true);
             cameras[i].SetActive(false);
-            i = 0;
         }
-	}
+    }
 }

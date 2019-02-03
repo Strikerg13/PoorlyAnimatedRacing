@@ -14,8 +14,12 @@ public class roadController : MonoBehaviour {
 
     public List<GameObject> TrackSegments;
 
+    public RoadCleaner roadCleaner;
+
     void Start()
     {
+        //roadCleaner = roadController.GetComponent<RoadCleaner>();
+
         // create the 1st track segment
         InitializeTrack();
 
@@ -32,6 +36,9 @@ public class roadController : MonoBehaviour {
     {
         TrackSegment01 = CreateTrackSegment();
         TrackSegment02 = null;
+
+        // add segment to the track for later cleanup
+        roadCleaner.QueTrackSegment(TrackSegment01);
     }
 
     void LoadNextSegment()
@@ -111,7 +118,7 @@ public class roadController : MonoBehaviour {
     // create a new length of track
     public void GenerateTrack(int TrackLength)
     {
-        for (int i = 1; i < TrackLength; i++)
+        for (int i = 1; i <= TrackLength; i++)
         {
             LoadNextSegment();
 
@@ -120,6 +127,10 @@ public class roadController : MonoBehaviour {
             {
                 TrackSegment02.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<BoxCollider>().enabled = true;
             }
+
+            // add this segment to the Track queue for later cleanup
+            roadCleaner.QueTrackSegment(TrackSegment02);
         }
+        roadCleaner.CleanUpTrack();
     }
 }

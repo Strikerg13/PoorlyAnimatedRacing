@@ -13,8 +13,9 @@ public class Checkpoint : MonoBehaviour {
         // get the Track Controller
         GameObject TrackController = GameObject.Find("TrackController");
 
+        roadController rc = TrackController.GetComponent<roadController>();
 
-        TrackController.GetComponent<roadController>().GenerateTrack(5);
+        rc.GenerateTrack(rc.TrackLength);
 
 
         this.GetComponent<BoxCollider>().enabled = false;
