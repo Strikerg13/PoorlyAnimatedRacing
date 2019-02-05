@@ -68,7 +68,7 @@ public class roadController : MonoBehaviour {
     // create a new track segment and store it in the given Game Object
     GameObject CreateTrackSegment()
     {
-        return (GameObject)Instantiate(GetSpecificTrackSegmentFromList("Line 100"), new Vector3(0,0,0), Quaternion.identity);
+        return (GameObject)Instantiate(GetSpecificTrackSegmentFromList("Line 40"), new Vector3(0,0,0), Quaternion.identity);
     }
 
     // create a new track segment at the location of the Previous Track Segment and store it in the given Game Object

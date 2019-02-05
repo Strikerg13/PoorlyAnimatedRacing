@@ -141,14 +141,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a321e381e262d45b779998024947ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrackLength: 5
+  TrackLength: 4
   Car: {fileID: 1518633521590516, guid: d483b4b730c81fe4ca252748f667f0f1, type: 2}
   TrackSegments:
-  - {fileID: 1606361814393000, guid: 07029ac18eb68204f94cea8f1f9902af, type: 2}
-  - {fileID: 1687681996281844, guid: ad8f4671f9f8996408f7184b398ecdda, type: 2}
-  - {fileID: 1494907023953836, guid: 2fbe2ff5e1d7ffe4f98d2f9b984d6d53, type: 2}
-  - {fileID: 1142297672590472, guid: 906012e3d1ae7424d88e9d1c7421a303, type: 2}
-  - {fileID: 1146485357358002, guid: 558a9640adc976945868d48a993af3c7, type: 2}
+  - {fileID: 1006899845769866, guid: 9bb7835155efb5948914a31ae0080602, type: 2}
+  - {fileID: 1319292151333372, guid: d3024a697c115e442a7dc48d35a91523, type: 2}
+  - {fileID: 1387920366637448, guid: de09eec1016c1154890f53bfae03e1c5, type: 2}
+  - {fileID: 1995639248660382, guid: 569db2224b433a04290c29e9ca95fb9e, type: 2}
+  - {fileID: 1090315216101000, guid: 0afc62c4505ebcd46b085f4c3355a1a5, type: 2}
+  - {fileID: 1860068846481506, guid: 7faf69ce8b1db714e9b47edaf30a2e14, type: 2}
   roadCleaner: {fileID: 328891521}
 --- !u!4 &328891520
 Transform:
@@ -318,3 +319,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &2075311771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2075311773}
+  - component: {fileID: 2075311772}
+  m_Layer: 0
+  m_Name: ResetScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2075311772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075311771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6ccab7ddd38164cb20b0cb5f412d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2075311773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075311771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.404297, y: 10.2890625, z: 38.132812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
