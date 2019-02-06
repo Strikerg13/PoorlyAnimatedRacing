@@ -37,6 +37,9 @@ public class roadController : MonoBehaviour {
         TrackSegment01 = CreateTrackSegment();
         TrackSegment02 = null;
 
+        // mark the road trigger as the 1st track segment
+        TrackSegment01.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Checkpoint>().isFirstSegment = true;
+
         // add segment to the track for later cleanup
         roadCleaner.QueTrackSegment(TrackSegment01);
     }
@@ -125,12 +128,14 @@ public class roadController : MonoBehaviour {
             // if this is the midpoint, set the trigger
             if (i == (TrackLength / 2))
             {
-                TrackSegment02.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<BoxCollider>().enabled = true;
+                TrackSegment02.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Checkpoint>().midpoint = true;
             }
 
             // add this segment to the Track queue for later cleanup
             roadCleaner.QueTrackSegment(TrackSegment02);
         }
         roadCleaner.CleanUpTrack();
+
+        roadCleaner.printTrackQueue();
     }
 }

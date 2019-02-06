@@ -7,6 +7,18 @@ public class CameraChange : MonoBehaviour {
     public List<GameObject> cameras;
     int i;
 
+    void Start ()
+    {
+        // turn on the 1st camera
+        cameras[0].SetActive(true);
+
+        // turn off all other cameras
+        for (int i = 1; i < cameras.Count; i++)
+        {
+            cameras[i].SetActive(false);
+        }
+    }
+
     void Update ()
     {
         if (Input.GetButtonDown("ChangeCamera_P1"))
