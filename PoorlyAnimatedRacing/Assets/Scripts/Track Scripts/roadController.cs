@@ -98,7 +98,7 @@ public class roadController : MonoBehaviour {
         while (randomTrackSegment == null)
         {
             // pick a random number within the indexes of the list.
-            randomIndex = (int)Random.Range(0.0f, (TrackSegments.Count - 1) * 1.0f);
+            randomIndex = (int)Random.Range(0.0f, (TrackSegments.Count) * 1.0f);
 
             randomTrackSegment = TrackSegments.ElementAt(randomIndex);
         }
