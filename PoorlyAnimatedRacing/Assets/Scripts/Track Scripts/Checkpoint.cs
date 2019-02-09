@@ -14,6 +14,10 @@ public class Checkpoint : MonoBehaviour {
         GameObject TrackController = GameObject.Find("TrackController");
         roadStructure rs = TrackController.GetComponent<roadStructure>();
 
+        // get the Navigation Controller
+        GameObject navController = GameObject.Find("NavigationController");
+        navigationManager nav = navController.GetComponent<navigationManager>();
+
         if (midpoint)
         {
             Debug.Log("CHECKPOINT");
@@ -25,6 +29,7 @@ public class Checkpoint : MonoBehaviour {
 
         passed = true;
         rs.setLastSegmentPassed(transform.parent.parent.parent.gameObject); 
+        nav.displayNextDirection();
         this.GetComponent<BoxCollider>().enabled = false;
     }
 }

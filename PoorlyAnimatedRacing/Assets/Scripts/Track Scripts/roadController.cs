@@ -16,9 +16,14 @@ public class roadController : MonoBehaviour {
 
     public RoadCleaner roadCleaner;
 
+    public navigationManager nav;
+
     void Start()
     {
         //roadCleaner = roadController.GetComponent<RoadCleaner>();
+
+        // Find the navigation controller
+        nav = GameObject.Find("NavigationController").GetComponent<navigationManager>();
 
         // create the 1st track segment
         InitializeTrack();
@@ -42,6 +47,9 @@ public class roadController : MonoBehaviour {
 
         // add segment to the track for later cleanup
         roadCleaner.QueTrackSegment(TrackSegment01);
+
+        // add directions from this segment to the navigation queue
+        //nav.queDirection(TrackSegment01.GetComponent<Direction>().direction);
     }
 
     void LoadNextSegment()
@@ -65,6 +73,9 @@ public class roadController : MonoBehaviour {
             // move the new track segment so it connects with the end of the previous track segment
             OverlayTrackSegments(TrackSegment01, TrackSegment02);
         }
+
+        // add directions from this segment to the navigation queue
+        nav.queDirection(TrackSegment02.GetComponent<Direction>());
     }
 
 

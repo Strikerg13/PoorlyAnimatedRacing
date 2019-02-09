@@ -9,7 +9,7 @@ public class RoadCleaner : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
-        Track = new Queue<GameObject>();
+        //Track = new Queue<GameObject>();
         //RoadController = this.GetComponent<roadController>();
 	}
 
