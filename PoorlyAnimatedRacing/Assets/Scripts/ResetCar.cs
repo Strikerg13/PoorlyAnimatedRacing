@@ -13,7 +13,7 @@ public class ResetCar : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Reset Car"))
+        if (Input.GetButtonDown("Reset Car") || Input.GetAxis("Reset_Car") == -1f)
         {
             Transform spawnpPoint = rs.getLastSegmentPassed().transform.GetChild(0).transform;
             GameObject car = GameObject.FindGameObjectWithTag("Player");

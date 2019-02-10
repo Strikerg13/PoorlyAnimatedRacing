@@ -8,6 +8,8 @@ public class Reset : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown("Reset"))
         {
+
+
             // https://stackoverflow.com/questions/41644156/unity3d-reset-current-scene/41644224
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
