@@ -14,4 +14,5 @@ public class Reset : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 	}
+      
 }
