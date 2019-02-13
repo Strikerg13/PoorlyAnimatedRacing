@@ -11,14 +11,12 @@ public class roadController : MonoBehaviour {
     GameObject TrackSegment02;
 
     public GameObject Car;
-
     public List<GameObject> TrackSegments;
-
     public RoadCleaner roadCleaner;
-
     public navigationManager nav;
+    public Camera StartCamera;
 
-    void Start()
+    public void StartTheGame()
     {
         //roadCleaner = roadController.GetComponent<RoadCleaner>();
 
@@ -34,6 +32,8 @@ public class roadController : MonoBehaviour {
         // create a length of track.
         GenerateTrack(TrackLength);
 
+        // disable the start camera
+        StartCamera.enabled = false;
     }
 
     // start a track with 2 line 100 segments
@@ -108,8 +108,12 @@ public class roadController : MonoBehaviour {
         // keep trying until we get an actual piece of track.
         while (randomTrackSegment == null)
         {
+            
+
             // pick a random number within the indexes of the list.
             randomIndex = (int)Random.Range(0.0f, (TrackSegments.Count) * 1.0f);
+
+
 
             randomTrackSegment = TrackSegments.ElementAt(randomIndex);
         }
