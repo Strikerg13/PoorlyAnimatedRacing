@@ -16,10 +16,13 @@ public class roadController : MonoBehaviour {
     public navigationManager nav;
     public Camera StartCamera;
 
+//    void Start()
+//    {
+//        StartTheGame();
+//    }
+
     public void StartTheGame()
     {
-        //roadCleaner = roadController.GetComponent<RoadCleaner>();
-
         // Find the navigation controller
         nav = GameObject.Find("NavigationController").GetComponent<navigationManager>();
 
@@ -151,6 +154,6 @@ public class roadController : MonoBehaviour {
         }
         roadCleaner.CleanUpTrack();
 
-        roadCleaner.printTrackQueue();
+        //roadCleaner.printTrackQueue();
     }
 }

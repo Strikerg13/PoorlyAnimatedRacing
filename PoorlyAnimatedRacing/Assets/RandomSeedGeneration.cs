@@ -19,8 +19,29 @@ public class RandomSeedGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        generateRandomSeed();
+        // If the player pressed the button
+        if (PlayerPrefs.GetString("ButtonPressed") == "yes")
+        {
+            // use their specified seed
+            typedSeed = PlayerPrefs.GetString("MySeed");
+            convertSeed(typedSeed);
+            UnityEngine.Random.InitState(numericSeed);
+
+            // Mark that the player has not pressed the button yet
+            PlayerPrefs.SetString("ButtonPressed", "no");
+        }
+        else
+        {
+            // generate a new seed
+            generateRandomSeed();
+            convertSeed(typedSeed);
+            UnityEngine.Random.InitState(numericSeed);
+        }
+
+        // Show the seed on the UI
         seedDisplay.text = typedSeed;
+
+        GameObject.Find("TrackController").GetComponent<roadController>().StartTheGame();
     }
 
     /// Convert a 4 letter alphanumeric code into an int for the random seed
@@ -45,19 +66,23 @@ public class RandomSeedGeneration : MonoBehaviour
 
     public void letsGo()
     {
-        convertSeed(typedSeed);
-        UnityEngine.Random.InitState(numericSeed);
+        // Save the specified seed, and mark that the player is requesting that seed.
+        // PlayerPrefs Documentation: https://docs.unity3d.com/ScriptReference/PlayerPrefs.html
+        PlayerPrefs.SetString("ButtonPressed", "yes");
+        PlayerPrefs.SetString("MySeed", typedSeed);
 
-        GameObject.Find("TrackController").GetComponent<roadController>().StartTheGame();
+        Debug.Log("The player requested a seed");
+        printPlayerPrefs();
 
-        foreach (GameObject panel in UIPanelsToHide)
-        {
-            panel.SetActive(false);
-        }
+        // Restart the Scene
+        GameObject.Find("ResetScript").GetComponent<Reset>().RestartLevel();
 
-        foreach (GameObject panel in UIPanelsToUnhide)
-        {
-            panel.SetActive(true);
-        }
+
+    }
+
+    public void printPlayerPrefs()
+    {
+        Debug.Log("ButtonPressed = " + PlayerPrefs.GetString("ButtonPressed"));
+        Debug.Log("MySeed = " + PlayerPrefs.GetString("MySeed"));
     }
 }

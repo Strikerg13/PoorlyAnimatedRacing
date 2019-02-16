@@ -5,14 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Reset : MonoBehaviour {
 
-	void Update () {
+	void Update () 
+    {
         if (Input.GetButtonDown("Reset"))
         {
-
-
-            // https://stackoverflow.com/questions/41644156/unity3d-reset-current-scene/41644224
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            RestartLevel();
         }
 	}
+
+    public void RestartLevel()
+    {
+        // https://stackoverflow.com/questions/41644156/unity3d-reset-current-scene/41644224
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
       
 }

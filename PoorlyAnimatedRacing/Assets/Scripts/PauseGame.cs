@@ -59,6 +59,10 @@ public class PauseGame : MonoBehaviour
     /// Quit to desktop
     public void exitTheGame()
     {
+        // Make sure we clear the seed variables for the next time they play
+        PlayerPrefs.SetString("ButtonPressed", "no");
+        PlayerPrefs.SetString("MySeed", "none");
+
         Debug.Log("Program Terminated...");
         Application.Quit();
     }
