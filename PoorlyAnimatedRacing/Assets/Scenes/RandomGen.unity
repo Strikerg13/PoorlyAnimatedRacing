@@ -148,7 +148,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 278.4001, y: -32.600025}
+  m_AnchoredPosition: {x: 214.4, y: -32.600025}
   m_SizeDelta: {x: 194.4, y: 50.78003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25593187
@@ -311,7 +311,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '####-####'
+  m_Text: '####'
 --- !u!222 &27293190
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1176,8 +1176,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 92.5, y: -32.6}
-  m_SizeDelta: {x: 91.899994, y: 31}
+  m_AnchoredPosition: {x: 60.243, y: -32.6}
+  m_SizeDelta: {x: 57.949, y: 31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1359853783
 MonoBehaviour:
@@ -1224,8 +1224,8 @@ MonoBehaviour:
   m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
-  m_CharacterLimit: 9
+  m_CharacterValidation: 3
+  m_CharacterLimit: 4
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -1491,8 +1491,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -104, y: -20}
-  m_SizeDelta: {x: 382.81, y: 67.07999}
+  m_AnchoredPosition: {x: -86.49, y: -20}
+  m_SizeDelta: {x: 316.24, y: 67.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1630234216
 MonoBehaviour:

@@ -25,7 +25,7 @@ public class Checkpoint : MonoBehaviour {
 
         if (midpoint)
         {
-            Debug.Log("CHECKPOINT");
+            //Debug.Log("CHECKPOINT");
 
             roadController rc = TrackController.GetComponent<roadController>();
 

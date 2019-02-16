@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class RandomSeedGeneration : MonoBehaviour
 {
-    /// Seed the user submits (Format: "####-###")
+    /// Seed the user submits (Format: 4-Digit Hex Number)
     public string typedSeed;
     public int numericSeed;
 
@@ -44,40 +44,46 @@ public class RandomSeedGeneration : MonoBehaviour
         GameObject.Find("TrackController").GetComponent<roadController>().StartTheGame();
     }
 
-    /// Convert a 4 letter alphanumeric code into an int for the random seed
+    /// Convert a 4-Digit hex number into an int for the random seed
     void convertSeed(string givenSeed)
     {
-        givenSeed = Regex.Replace(givenSeed, @"[^0-9]", "");
-        numericSeed = Convert.ToInt32(givenSeed);
+        // Hex Numbers: https://stackoverflow.com/questions/1139957/c-sharp-convert-to-hex-and-back-again
+        numericSeed = int.Parse(givenSeed, System.Globalization.NumberStyles.HexNumber);
     }
 
     // This will set the typedSeed to a generated one, which the user can change before starting
     void generateRandomSeed()
     {
-        typedSeed = Convert.ToInt32(UnityEngine.Random.Range(0.0f, 9999.0f)).ToString("0000")
-        + "-"
-        + Convert.ToInt32(UnityEngine.Random.Range(0.0f, 9999.0f)).ToString("0000");
+        typedSeed = Convert.ToInt32(UnityEngine.Random.Range(0.0f, 65535.0f)).ToString("X4");
     }
 
     public void setTypedSeed(string myString)
     {
-        typedSeed = myString;
+        int seed = 0;
+        bool checkSeed = int.TryParse(myString, out seed);
+
+        if (!checkSeed && seed <= 65535 && seed >= 0)
+        {
+            typedSeed = myString;
+        }
+        else
+        {
+            return;
+        }
+
     }
 
     public void letsGo()
     {
+        setTypedSeed(typedSeed);
+
         // Save the specified seed, and mark that the player is requesting that seed.
         // PlayerPrefs Documentation: https://docs.unity3d.com/ScriptReference/PlayerPrefs.html
         PlayerPrefs.SetString("ButtonPressed", "yes");
         PlayerPrefs.SetString("MySeed", typedSeed);
 
-        Debug.Log("The player requested a seed");
-        printPlayerPrefs();
-
         // Restart the Scene
         GameObject.Find("ResetScript").GetComponent<Reset>().RestartLevel();
-
-
     }
 
     public void printPlayerPrefs()
