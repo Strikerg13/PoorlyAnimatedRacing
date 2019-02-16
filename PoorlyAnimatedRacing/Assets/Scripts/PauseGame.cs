@@ -62,6 +62,7 @@ public class PauseGame : MonoBehaviour
         // Make sure we clear the seed variables for the next time they play
         PlayerPrefs.SetString("ButtonPressed", "no");
         PlayerPrefs.SetString("MySeed", "none");
+        PlayerPrefs.SetInt("SelectedCameraIndex", 0);
 
         Debug.Log("Program Terminated...");
         Application.Quit();

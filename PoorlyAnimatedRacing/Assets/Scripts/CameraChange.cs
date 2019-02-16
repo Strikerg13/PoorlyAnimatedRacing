@@ -9,13 +9,27 @@ public class CameraChange : MonoBehaviour {
 
     void Start ()
     {
-        // turn on the 1st camera
-        cameras[0].SetActive(true);
+        // Check if a camera was set last time, otherwise turn on the 1st camera
+        int savedCamera = GameObject.Find("GameManager").GetComponent<CameraValues>().activeCamera;
+        if (savedCamera >= 0 && savedCamera < cameras.Count)
+        {
+            setActiveCamera(cameras, savedCamera);
+        }
+        else
+        {
+            setActiveCamera(cameras, 0);
+        }
+
 
         // turn off all other cameras
-        for (int i = 1; i < cameras.Count; i++)
+        for (int i = 0; i < cameras.Count; i++)
         {
-            cameras[i].SetActive(false);
+            // don't shut off our saved camera!
+            if (i != savedCamera)
+            {
+                setInactiveCamera(cameras, i);
+            }
+
         }
     }
 
@@ -36,18 +50,32 @@ public class CameraChange : MonoBehaviour {
         }
     }
 
+    /// Pass in the list of cameras and the index in that list with the camera you want to switch to.
+    void setActiveCamera(List<GameObject> cams, int index)
+    {
+        cams[index].SetActive(true);
+        GameObject.Find("GameManager").GetComponent<CameraValues>().activeCamera = index;
+
+    }
+
+    /// Pass in the list of cameras and the index in that list with the camera you want to switch from.
+    void setInactiveCamera(List<GameObject> cams, int index)
+    {
+        cams[index].SetActive(false);
+    }
+
     IEnumerator SwitchCamera()
     {
         yield return new WaitForSeconds(0.01f);
         if (i < cameras.Count - 1)
         {
-            cameras[i + 1].SetActive(true);
-            cameras[i].SetActive(false);
+            setActiveCamera(cameras, i + 1);
+            setInactiveCamera(cameras, i);
         }
         else
         {
-            cameras[0].SetActive(true);
-            cameras[i].SetActive(false);
+            setActiveCamera(cameras, 0);
+            setInactiveCamera(cameras, i);
         }
     }
 }

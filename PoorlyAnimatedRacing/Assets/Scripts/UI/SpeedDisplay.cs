@@ -30,10 +30,10 @@ public class SpeedDisplay : MonoBehaviour
         while (GameObject.FindGameObjectWithTag("Player") == null)
         {
             yield return new WaitForSeconds(1.0f);
-            Debug.Log("CAR not found.");
+            //Debug.Log("CAR not found.");
         }
 
         car = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log("I found the PLAYER!!!!");
+        //Debug.Log("I found the PLAYER!!!!");
     }
 }
