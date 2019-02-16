@@ -8,6 +8,11 @@ public class Checkpoint : MonoBehaviour {
     public bool passed = false;
     public bool isFirstSegment = false;
 
+    /// Put the parent game object here so the 
+    /// entire track segment can be passed in as the 
+    /// Last Segment Passed in the roadController.
+    public GameObject segmentTransform;
+
     void OnTriggerEnter()
     {
         // get the Track Controller
@@ -28,8 +33,8 @@ public class Checkpoint : MonoBehaviour {
         }
 
         passed = true;
-        rs.setLastSegmentPassed(transform.parent.parent.parent.gameObject); 
+        rs.setLastSegmentPassed(segmentTransform); 
         nav.displayNextDirection();
-        this.GetComponent<BoxCollider>().enabled = false;
+        gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 }

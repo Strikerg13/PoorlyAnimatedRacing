@@ -23,14 +23,6 @@ public class RandomSeedGeneration : MonoBehaviour
         seedDisplay.text = typedSeed;
     }
 
-    void Update()
-    {
-        if (Input.GetButtonDown("Submit") && typedSeed != null)
-        {
-            letsGo();
-        }
-    }
-
     /// Convert a 4 letter alphanumeric code into an int for the random seed
     void convertSeed(string givenSeed)
     {
