@@ -1,33 +1,37 @@
 fileFormatVersion: 2
-guid: b80951753166c4b4d95fb87000436c30
+guid: 5b39df418af2833468c0326fc20ea6c8
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: BezierCurve
-    100002: //RootNode
-    100004: NurbsPath
-    400000: BezierCurve
-    400002: //RootNode
-    400004: NurbsPath
-    2100000: Material.001
-    2300000: BezierCurve
-    2300002: NurbsPath
-    3300000: BezierCurve
-    3300002: NurbsPath
-    4300000: NurbsPath
-    4300002: BezierCurve
+    100000: BezierCircle
+    100002: Cube
+    100004: Point
+    100006: Point.001
+    100008: Point.002
+    100010: //RootNode
+    400000: BezierCircle
+    400002: Cube
+    400004: Point
+    400006: Point.001
+    400008: Point.002
+    400010: //RootNode
+    2100000: Material.003
+    2300000: BezierCircle
+    2300002: Cube
+    3300000: BezierCircle
+    3300002: Cube
+    4300000: Cube
+    4300002: BezierCircle
+    10800000: Point
+    10800002: Point.001
+    10800004: Point.002
     2186277476908879412: ImportLogs
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: fb41aa1daca97114cacfe9b6bcf2f876, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -59,8 +63,8 @@ ModelImporter:
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1

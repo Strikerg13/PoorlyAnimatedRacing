@@ -1,33 +1,34 @@
 fileFormatVersion: 2
-guid: b80951753166c4b4d95fb87000436c30
+guid: 3bad93642a93f6949b64f8607eeebf78
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: BezierCurve
-    100002: //RootNode
-    100004: NurbsPath
-    400000: BezierCurve
-    400002: //RootNode
-    400004: NurbsPath
-    2100000: Material.001
-    2300000: BezierCurve
+    100000: BezierCircle
+    100002: NurbsPath
+    100004: Point
+    100006: Point.001
+    100008: //RootNode
+    400000: BezierCircle
+    400002: NurbsPath
+    400004: Point
+    400006: Point.001
+    400008: //RootNode
+    2100000: Material.003
+    2300000: BezierCircle
     2300002: NurbsPath
-    3300000: BezierCurve
+    3300000: BezierCircle
     3300002: NurbsPath
-    4300000: NurbsPath
-    4300002: BezierCurve
+    4300000: BezierCircle
+    4300002: NurbsPath
+    10800000: Point
+    10800002: Point.001
     2186277476908879412: ImportLogs
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: fb41aa1daca97114cacfe9b6bcf2f876, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
