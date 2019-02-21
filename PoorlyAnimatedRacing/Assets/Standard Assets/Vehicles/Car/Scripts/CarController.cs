@@ -24,6 +24,9 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
         [SerializeField] private Vector3 m_CentreOfMassOffset;
         [SerializeField] private float m_MaximumSteerAngle;
+        [Range(0, 90)][SerializeField] private float m_FastSteerAngle;
+        [Range(0, 90)] [SerializeField] private float m_SlowSteerAngle;
+        [Range(0,1)][SerializeField] private float m_SteerAngleKickIn;
         [Range(0, 1)] [SerializeField] private float m_SteerHelper; // 0 is raw physics , 1 the car will grip in the direction it is facing
         [Range(0, 1)] [SerializeField] private float m_TractionControl; // 0 is no traction control, 1 is full interference
         [SerializeField] private float m_FullTorqueOverAllWheels;
@@ -155,7 +158,14 @@ namespace UnityStandardAssets.Vehicles.Car
 
             //Set the steer on the front wheels.
             //Assuming that wheels 0 and 1 are the front wheels.
-            m_SteerAngle = steering*m_MaximumSteerAngle;
+
+
+                // get % of speed * the modifier
+            float speedfactor = CurrentSpeed / (m_SteerAngleKickIn * m_Topspeed);
+            //Interpolate the max steering angle based on speed.
+            m_SteerAngle = steering * Mathf.Lerp(m_SlowSteerAngle, m_FastSteerAngle, speedfactor);
+            //m_SteerAngle = steering*m_MaximumSteerAngle;
+
             m_WheelColliders[0].steerAngle = m_SteerAngle;
             m_WheelColliders[1].steerAngle = m_SteerAngle;
 

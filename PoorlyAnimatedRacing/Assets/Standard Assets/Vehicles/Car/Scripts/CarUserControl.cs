@@ -23,7 +23,7 @@ namespace UnityStandardAssets.Vehicles.Car
             float h = CrossPlatformInputManager.GetAxis("Horizontal_P1");
             float v = CrossPlatformInputManager.GetAxis("Vertical_P1");
 #if !MOBILE_INPUT
-            float handbrake = CrossPlatformInputManager.GetAxis("Jump_P1");
+            float handbrake = CrossPlatformInputManager.GetAxis("Handbrake");
             m_Car.Move(h, v, v, handbrake);
 #else
             m_Car.Move(h, v, v, 0f);
