@@ -639,6 +639,8 @@ MonoBehaviour:
   - {fileID: 1860068846481506, guid: 7faf69ce8b1db714e9b47edaf30a2e14, type: 3}
   - {fileID: 5136221682020545155, guid: edd801d845fb76e46924baf0f7a99c6e, type: 3}
   - {fileID: 1387920366637448, guid: 6dc96d07de9678b499a502447754e2d7, type: 3}
+  - {fileID: 1387920366637448, guid: a3380d5bd0bd7bc478935f3ab83d8ad4, type: 3}
+  - {fileID: 1705634122535861933, guid: 69ae7e29191706e499c255daebc0fc70, type: 3}
   roadCleaner: {fileID: 328891521}
   nav: {fileID: 0}
   StartCamera: {fileID: 624333871}

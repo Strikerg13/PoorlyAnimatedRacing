@@ -41,7 +41,7 @@ public class roadController : MonoBehaviour {
         StartCamera.enabled = false;
     }
 
-    // start a track with 2 line 100 segments
+    /// start a track.
     void InitializeTrack()
     {
         TrackSegment01 = CreateTrackSegment();
@@ -84,13 +84,13 @@ public class roadController : MonoBehaviour {
     }
 
 
-    // create a new track segment and store it in the given Game Object
+    /// create a new track segment and store it in the given Game Object
     GameObject CreateTrackSegment()
     {
         return (GameObject)Instantiate(GetSpecificTrackSegmentFromList("Line 40"), new Vector3(0,0,0), Quaternion.identity);
     }
 
-    // create a new track segment at the location of the Previous Track Segment and store it in the given Game Object
+    /// create a new track segment at the location of the Previous Track Segment and store it in the given Game Object
     GameObject CreateTrackSegment(GameObject PreviousTrackSegment)
     {
         return (GameObject)Instantiate(GetRandomTrackSegmentFromList(TrackSegments), 
@@ -98,13 +98,13 @@ public class roadController : MonoBehaviour {
                                        PreviousTrackSegment.transform.rotation);
     }
 
-    // pulls out a track segment with the given name from the list of track segments. 
+    /// pulls out a track segment with the given name from the list of track segments. 
     GameObject GetSpecificTrackSegmentFromList(string name)
     {
         return TrackSegments.Where(GameObject => (GameObject != null && GameObject.name == name)).SingleOrDefault();
     }
 
-    // pulls out a random track segment from the given list.
+    /// pulls out a random track segment from the given list.
     GameObject GetRandomTrackSegmentFromList(List<GameObject> TrackSegments)
     {
         GameObject randomTrackSegment = null;
@@ -122,7 +122,7 @@ public class roadController : MonoBehaviour {
         return randomTrackSegment;
     }
 
-    // Joins two segments of track together.
+    /// Joins two segments of track together.
     void OverlayTrackSegments(GameObject PreviousTrackSegment, GameObject NextTrackSegment)
     {
         // get the nodeEnd of the 1st track segment and the nodeStart of the 2nd track segment
@@ -134,7 +134,7 @@ public class roadController : MonoBehaviour {
         transNext.position = transPrevious.position;
     }
 
-    // create a new length of track
+    /// create a new length of track
     public void GenerateTrack(int TrackLength)
     {
         for (int i = 1; i <= TrackLength; i++)
@@ -153,5 +153,14 @@ public class roadController : MonoBehaviour {
         roadCleaner.CleanUpTrack();
 
         //roadCleaner.printTrackQueue();
+    }
+
+    /// Pass in a track segment to set it as the most recent segment generated.
+    /// 
+    /// NOTE: You can use this to change to an alternate path by passing in the 
+    /// track segment you want the generation to start from.
+    public void setTrackSegment02(GameObject trackSegment)
+    {
+        TrackSegment02 = trackSegment;
     }
 }

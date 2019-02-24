@@ -30,7 +30,7 @@ public class RoadCleaner : MonoBehaviour {
     public void CleanUpTrack()
     {
         // Check if the track is more than double a single length so we don't delete the length we are currently on
-        if (Track.Count >= (RoadController.TrackLength * 3))
+        if (Track.Count >= (RoadController.TrackLength * 4))
         {
             GameObject segmentToDelete;
 
