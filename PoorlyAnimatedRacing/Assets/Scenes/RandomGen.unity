@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrackLength: 4
-  Car: {fileID: 1518633521590516, guid: d483b4b730c81fe4ca252748f667f0f1, type: 3}
+  Car: {fileID: 1518633521590516, guid: 2722914b16646e940befa5382c78f051, type: 3}
   TrackSegments:
   - {fileID: 1006899845769866, guid: 9bb7835155efb5948914a31ae0080602, type: 3}
   - {fileID: 1319292151333372, guid: d3024a697c115e442a7dc48d35a91523, type: 3}
@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02d05edd96960640addfa1b068d8e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  money: 1
   txtMoneyDisplay: {fileID: 1416337799}
 --- !u!114 &1362790286
 MonoBehaviour:
@@ -1452,7 +1452,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 1
 --- !u!222 &1416337800
 CanvasRenderer:
   m_ObjectHideFlags: 0

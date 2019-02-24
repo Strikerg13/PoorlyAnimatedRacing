@@ -18,6 +18,9 @@ namespace UnityStandardAssets.Vehicles.Car
 
     public class CarController : MonoBehaviour
     {
+        [SerializeField] private float coastForce;
+        [SerializeField] private float coastSpeedKickIn;
+        [SerializeField] private float brakeForce;
         [SerializeField] private CarDriveType m_CarDriveType = CarDriveType.FourWheelDrive;
         [SerializeField] private WheelCollider[] m_WheelColliders = new WheelCollider[4];
         [SerializeField] private GameObject[] m_WheelMeshes = new GameObject[4];
@@ -47,7 +50,7 @@ namespace UnityStandardAssets.Vehicles.Car
         private float m_GearFactor;
         private float m_OldRotation;
         private float m_CurrentTorque;
-        private Rigidbody m_Rigidbody;
+        [SerializeField] private Rigidbody m_Rigidbody;
         private const float k_ReversingThreshold = 0.01f;
 
         public bool Skidding { get; private set; }
@@ -249,12 +252,20 @@ namespace UnityStandardAssets.Vehicles.Car
                 if (CurrentSpeed > 5 && Vector3.Angle(transform.forward, m_Rigidbody.velocity) < 50f)
                 {
                     m_WheelColliders[i].brakeTorque = m_BrakeTorque*footbrake;
+                    if (footbrake <= 0 && accel == 0)
+                    {
+                        if (CurrentSpeed >= coastSpeedKickIn)
+                            m_Rigidbody.AddRelativeForce(Vector3.back * coastForce);
+                    }
+                    else if (footbrake > 0)
+                        m_Rigidbody.AddRelativeForce(Vector3.back * brakeForce);
                 }
                 else if (footbrake > 0)
                 {
                     m_WheelColliders[i].brakeTorque = 0f;
                     m_WheelColliders[i].motorTorque = -m_ReverseTorque*footbrake;
                 }
+
             }
         }
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MoneyDisplay : MonoBehaviour
 {
     /// How many coins the player has collected.
-    public int money = 0;
+    public int money = 1;
     /// Textbox that displays the player's money.
     public Text txtMoneyDisplay;
 
@@ -14,7 +14,7 @@ public class MoneyDisplay : MonoBehaviour
     /// Reset the player's money.
     void initializeMoney()
     {
-        money = 0;
+        money = 1;
         displayMoney();
     }
 
