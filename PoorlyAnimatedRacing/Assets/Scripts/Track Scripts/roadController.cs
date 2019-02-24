@@ -30,7 +30,9 @@ public class roadController : MonoBehaviour {
         InitializeTrack();
 
         // place the car on the 1st track segment
-        Instantiate(Car, new Vector3(TrackSegment01.transform.position.x, TrackSegment01.transform.position.y + 0.5f, TrackSegment01.transform.position.z + 5.0f), TrackSegment01.transform.rotation);
+        Instantiate(Car, 
+                    TrackSegment01.GetComponent<TrackSegment>().respawnPoint.position, 
+                    TrackSegment01.GetComponent<TrackSegment>().respawnPoint.rotation);
 
         // create a length of track.
         GenerateTrack(TrackLength);
@@ -111,12 +113,8 @@ public class roadController : MonoBehaviour {
         // keep trying until we get an actual piece of track.
         while (randomTrackSegment == null)
         {
-            
-
             // pick a random number within the indexes of the list.
             randomIndex = (int)Random.Range(0.0f, (TrackSegments.Count) * 1.0f);
-
-
 
             randomTrackSegment = TrackSegments.ElementAt(randomIndex);
         }
@@ -128,8 +126,8 @@ public class roadController : MonoBehaviour {
     void OverlayTrackSegments(GameObject PreviousTrackSegment, GameObject NextTrackSegment)
     {
         // get the nodeEnd of the 1st track segment and the nodeStart of the 2nd track segment
-        Transform transPrevious = PreviousTrackSegment.transform.Find("nodeStart").Find("nodeEnd");
-        Transform transNext = NextTrackSegment.transform.Find("nodeStart");
+        Transform transPrevious = PreviousTrackSegment.GetComponent<TrackSegment>().nodeEnd;
+        Transform transNext = NextTrackSegment.GetComponent<TrackSegment>().nodeStart;
 
         // lay the start of the 2nd track segment over the end of the 1st track segment
         NextTrackSegment.transform.rotation = transPrevious.rotation;

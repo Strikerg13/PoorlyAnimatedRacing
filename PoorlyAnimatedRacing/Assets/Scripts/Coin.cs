@@ -11,7 +11,7 @@ public class Coin : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
     }
 
     // Add a coin to the player's total, then delete.
